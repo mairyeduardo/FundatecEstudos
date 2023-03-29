@@ -1,0 +1,74 @@
+body,
+html {
+    height: 100%;
+    margin: 0%;
+    background-color: rgb(34, 34, 34)
+}
+
+
+.div1,
+.div2 {
+    height: 60px;
+    background-color: rgb(61, 61, 61);
+    position: relative;
+}
+
+.div1 {
+    border-bottom: 1px solid grey;
+}
+
+.svg1 {
+    height: 20px;
+    padding: 11px;
+    fill: rgb(255, 255, 255);
+}
+
+.botaoprincipal {
+    position: relative;
+    height: 50px;
+    background-color: rgb(102, 99, 99);
+    border-radius: 25px;
+    border: none;
+    margin-top: 5px;
+    margin-right: 2px;
+}
+
+.botaoprincipal span {
+    position: absolute;
+    width: 15px; 
+    height: 15px; 
+    background-color: red;
+    color: white;
+    border-radius: 50%; 
+    top: 5px; 
+    right: 5px;
+
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.botaopequeno {
+    background-color: #666363;
+    border: solid 1px grey;
+    border-radius: 200px;
+    position: absolute;
+    right: 2px;
+    padding: 0;
+    width: 20px;
+    margin: 0;
+    bottom: 2px;
+    height: 20px;
+}
+
+.svg2 {
+    height: 10px;
+    padding: 2px;
+    fill: rgb(255, 255, 255);
+}
+
+.div2 {
+    width: fit-content;
+    margin-left: auto;
+}
