@@ -1,0 +1,144 @@
+:root {
+    --cor-fundo: #292929;
+    --cor-recebido: #657583;
+    --cor-enviado: #2e5f4f;
+    --cor-texto: white;
+
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#div-corpo-chat {
+    position: relative;
+    border-radius: 7px;
+    background-color: var(--cor-fundo);
+    margin: 0 auto;
+    width: 40%;
+    height: 400px;
+}
+
+#div-titulo {
+    position: relative;
+    border-bottom: 1px dotted var(--cor-recebido);
+}
+
+h2 {
+    margin: 0px 10px 0px 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 30px;
+    color: var(--cor-texto);
+}
+
+ul {
+    padding-left: 0px;
+    list-style: none;
+}
+
+p {
+    color: var(--cor-texto);
+}
+
+.div-chat-mensagens-recebidas,
+.div-chat-mensagens-enviadas,
+.div-chat-mensagens-enviadas1 {
+    position: relative;
+    border-radius: 12px;
+    margin-bottom: 3px;
+    width: fit-content;
+    padding: 1px 30px 1px 8px;
+}
+
+
+.div-chat-mensagens-recebidas {
+    background-color: var(--cor-recebido);
+    margin-left: 10px;
+
+}
+
+.div-chat-mensagens-enviadas1 {
+    background-color: var(--cor-enviado);
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.div-chat-mensagens-enviadas {
+    background-color: var(--cor-enviado);
+    margin-left: auto;
+    margin-right: 10px;
+
+}
+
+#botao-tres-pontos-opcao {
+    position: absolute;
+    top: 20%;
+    right: 6%;
+    border: none;
+    border-radius: 100px;
+    height: 30px;
+    width: 30px;
+    padding: 0px;
+    background-color: var(--cor-fundo);
+
+}
+
+#botao-tres-pontos-opcao:hover {
+    background-color: #444444;
+    cursor: pointer;
+}
+
+#svg-icone-tres-pontos-opcao {
+    height: 20px;
+    fill: white;
+}
+
+.span-svg-check-azul,
+.span-svg-check-cinza {
+    position: absolute;
+    bottom: 5px;
+    right: 8px;
+    padding: 0px;
+    width: 13px;
+}
+
+.span-svg-check-azul {
+    fill: rgb(81, 200, 255);
+}
+
+.span-svg-check-cinza {
+    fill: rgb(160, 160, 160);
+}
+
+.botao-drop-1,
+.botao-drop-2 {
+    position: absolute;
+    border-radius: 150px;
+    top: 5px;
+    right: 8px;
+    border: none;
+    opacity: 0%;
+    padding: 0;
+}
+
+.botao-drop-1 {
+    background-color: var(--cor-recebido);
+}
+
+.botao-drop-2 {
+    background-color: var(--cor-enviado);
+}
+
+.botao-drop-1:hover,
+.botao-drop-2:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+.svg-icone-drop {
+    height: 10px;
+    width: 15px;
+    fill: white;
+}
