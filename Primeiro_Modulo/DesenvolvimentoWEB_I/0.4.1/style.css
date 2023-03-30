@@ -1,0 +1,56 @@
+table {
+    border-collapse: collapse;
+  }
+  
+  tr:first-child {
+   background-color: #22272e;
+   color : white;
+   border: none;
+  }
+  
+  tr,th { 
+   padding: 10px;
+   text-align: center;
+  }
+  
+  td {
+    padding: 15px 20px;
+  }
+  
+  .redes {
+    color: white;
+    border: none;
+  }
+  
+  .redes:active{
+    border: dashed;
+    border-color: black;
+  }
+  
+  .twitter {
+    background-color: #1A8CD8;
+  
+    }
+  
+  .face{
+    background-color: #23A6F5;
+  
+  }
+  
+  .youtube{
+    background-color: #C00000;
+  
+  }
+  
+  tr:hover:not(:first-child) {
+    background-color: #767f91;
+  }
+  
+  tr:nth-child(odd):not(:first-child) {
+  background-color: #ced1d6;
+  }
+  
+  a{
+   color: white; 
+   text-decoration: none;
+  }
