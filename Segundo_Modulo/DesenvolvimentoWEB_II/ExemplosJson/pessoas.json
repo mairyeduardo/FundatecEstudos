@@ -1,0 +1,32 @@
+[
+    {
+        "nome" : "Mairy",
+        "idade" : 29, 
+        "gamer" : false,
+        "carro" : null,
+        "profissao" : ["estudante", "dev"],
+        "endereco" : [  
+            { 
+             "cep" : 91787197,
+             "bairro" : "hipica",
+             "rua" : "mario andreazza",
+             "numero" : 130,
+             "complemento" : "casa",
+             "estado" : {
+                "nomeEstado" : "rs",
+                "regiao" : "sul"
+                } 
+            }  
+         ]
+       
+
+         
+    },
+    {
+        "nome" : "Eduardo",
+        "idade" : 21, 
+        "gamer" : true,
+        "carro" : null
+    }
+
+]
