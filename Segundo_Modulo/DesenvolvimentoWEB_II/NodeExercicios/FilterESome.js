@@ -93,4 +93,3 @@ const publicacoes = [
   const array = filtrarDiferenteDe('resident evil');
   
   console.log(array);
-  
