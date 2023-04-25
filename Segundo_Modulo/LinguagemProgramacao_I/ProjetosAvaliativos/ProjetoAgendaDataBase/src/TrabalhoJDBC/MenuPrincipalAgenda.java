@@ -1,10 +1,7 @@
 package TrabalhoJDBC;
 
 import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.Scanner;
 
 public class MenuPrincipalAgenda {
@@ -29,9 +26,9 @@ public class MenuPrincipalAgenda {
             } else if (opcao == 2) {
                 excluirRegistro();
             } else if (opcao == 3) {
-                System.out.println("Não implementado!");
+                listarRegistro();
             } else if (opcao == 4) {
-                System.out.println("Não implementado!");
+                listarNome();
             } else if (opcao == 0) {
                 System.out.println("Programa encerrado!");
             } else {
@@ -80,7 +77,7 @@ public class MenuPrincipalAgenda {
         registro.setNome(teclado.nextLine());
         System.out.println("Insira um sobrenome:");
         registro.setSobrenome(teclado.nextLine());
-        System.out.println("Insira um idade:");
+        System.out.println("Insira uma idade:");
         registro.setIdade(teclado.nextInt());
 
         Connection conexao = null;
@@ -90,7 +87,6 @@ public class MenuPrincipalAgenda {
             conexao = ConexaoDB.getConexao();
 
             String sql = "INSERT INTO REGISTRO (id, nome, sobrenome, idade) " + "VALUES (?, ?, ?, ?)";
-
             stmt = conexao.prepareStatement(sql);
 
             stmt.setInt(1, registro.getId());
@@ -159,4 +155,84 @@ public class MenuPrincipalAgenda {
             }
         }
     }
+    public static void listarRegistro(){
+        Connection conexao = null;
+        Statement stmt = null;
+        try {
+            conexao = ConexaoDB.getConexao();
+            stmt = conexao.createStatement();
+
+            String sql = "SELECT id, nome, sobrenome, idade FROM Registro";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while(rs.next()) {
+                int id  = rs.getInt("id");
+                int age = rs.getInt("idade");
+                String first = rs.getString("nome");
+                String last = rs.getString("sobrenome");
+
+                System.out.print("ID: " + id);
+                System.out.print(", IDADE: " + age);
+                System.out.print(", NOME: " + first);
+                System.out.println(", SOBRENOME: " + last);
+            }
+            rs.close();
+            retornarMenu();
+        } catch(SQLException se) {
+            se.printStackTrace();
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(stmt!=null) stmt.close();
+            } catch(SQLException se2) {
+                retornarMenu();
+            }
+        }
+    }
+    public static void listarNome(){
+        Scanner teclado = getScanner();
+        Agenda registro = new Agenda();
+
+        System.out.println("Insira o nome que deseja listar:");
+        registro.setNome(teclado.nextLine());
+
+        Connection conexao = null;
+        Statement stmt = null;
+
+        try {
+            conexao = ConexaoDB.getConexao();
+            stmt = conexao.createStatement();
+
+            String sql = "SELECT * FROM Registro" + " WHERE nome like '%" + registro.getNome() + "%'";
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while(rs.next()) {
+                int id  = rs.getInt("id");
+                int age = rs.getInt("idade");
+                String first = rs.getString("nome");
+                String last = rs.getString("sobrenome");
+
+                System.out.print("ID: " + id);
+                System.out.print(", IDADE: " + age);
+                System.out.print(", NOME: " + first);
+                System.out.println(", SOBRENOME: " + last);
+            }
+            rs.close();
+            retornarMenu();
+        } catch(SQLException se) {
+            se.printStackTrace();
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(stmt!=null) stmt.close();
+            } catch(SQLException se2) {
+                retornarMenu();
+            }
+        }
+
+    }
+
 }
