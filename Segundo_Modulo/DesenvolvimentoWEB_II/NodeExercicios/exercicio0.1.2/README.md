@@ -1,0 +1,1 @@
+Adapte o Exercício *0.1.0* para que o desconto seja aplicado para um valor de no máximo 100 reais independente do tipo de desconto. 
