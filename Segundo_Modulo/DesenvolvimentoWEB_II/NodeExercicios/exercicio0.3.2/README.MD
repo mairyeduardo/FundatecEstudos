@@ -1,22 +1,24 @@
 Considere o array de `tarefas` declarado abaixo.
 
->> const tarefas = [ 
->>   {
->>     titulo: 'Passear com o cachorro',
->>     concluida: false,
->> 		dias: 10,
->>   },
->>   {
->>     titulo: 'Comprar leite',
->>     concluida: false,
->> 		dias: 5,
->>   },
->>   {
->>     titulo: 'Lavar louça',
->>     concluida: true,
->> 		dias: 60,
->>   }
->> ]
+```jsx
+const tarefas = [
+  {
+    titulo: 'Passear com o cachorro',
+    concluida: false,
+		dias: 10,
+  },
+  {
+    titulo: 'Comprar leite',
+    concluida: false,
+		dias: 5,
+  },
+  {
+    titulo: 'Lavar louça',
+    concluida: true,
+		dias: 60,
+  }
+] 
+```
 
 **Enunciado 1:** Faça uma função que retorne todos as tarefas que estão concluídas. 
 
