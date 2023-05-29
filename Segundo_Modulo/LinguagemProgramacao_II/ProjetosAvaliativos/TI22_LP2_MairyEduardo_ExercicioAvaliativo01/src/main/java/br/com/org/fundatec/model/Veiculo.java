@@ -5,7 +5,7 @@ public abstract class Veiculo {
     private String marca;
     private String modelo;
 
-    abstract void calculoTarifa(int tempo);
+    abstract void calculoTarifa(Double tempo);
 
     public Veiculo (String marca, String modelo){
         this.marca = marca;
