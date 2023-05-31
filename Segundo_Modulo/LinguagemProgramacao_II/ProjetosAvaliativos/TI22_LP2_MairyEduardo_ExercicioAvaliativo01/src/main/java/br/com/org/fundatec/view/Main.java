@@ -43,7 +43,7 @@ public class Main {
         String marca = teclado.nextLine();
         System.out.println("Digite o modelo:");
         String modelo = teclado.nextLine();
-        Carro carro = new Carro(marca, modelo);
+        Veiculo carro = new Carro(marca, modelo);
 
         System.out.println("Defina o tempo de uso do estacionamento:");
         Double tempo = teclado.nextDouble();
@@ -57,7 +57,7 @@ public class Main {
         String marca = teclado.nextLine();
         System.out.println("Digite o modelo:");
         String modelo = teclado.nextLine();
-        Moto moto = new Moto(marca, modelo);
+        Veiculo moto = new Moto(marca, modelo);
 
         System.out.println("Defina o tempo de uso do estacionamento:");
         Double tempo = teclado.nextDouble();
@@ -71,7 +71,7 @@ public class Main {
         String marca = teclado.nextLine();
         System.out.println("Digite o modelo:");
         String modelo = teclado.nextLine();
-        Bicicleta bicicleta = new Bicicleta(marca, modelo);
+        Veiculo bicicleta = new Bicicleta(marca, modelo);
 
         System.out.println("Defina o tempo de uso do estacionamento:");
         Double tempo = teclado.nextDouble();
