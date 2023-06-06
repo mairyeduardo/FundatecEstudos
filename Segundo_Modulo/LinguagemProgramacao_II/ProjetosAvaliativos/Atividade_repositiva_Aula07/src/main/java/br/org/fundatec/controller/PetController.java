@@ -25,5 +25,48 @@ public class PetController {
         return petService.listarPets();
     }
 
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity criarPet(@RequestBody Pet pet) {
+        petService.salvarPet(pet);
+        return ResponseEntity.ok().build();
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public ResponseEntity deletetarPet(@PathVariable("id") Integer id) {
+        Pet pet = petService.procuraPorId(id);
+        if(pet != null) {
+            petService.excluirPetPorId(id);
+            return ResponseEntity.ok().build();
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseEntity editarOPet(@PathVariable("id") Integer id, @RequestBody Pet pet) {
+        Pet petExiste = petService.procuraPorId(id);
+        if(petExiste != null) {
+            petService.editarPet(id, pet);
+            return ResponseEntity.ok().build();
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity procurarPorId(@PathVariable("id") Integer id) {
+        Pet pet = petService.procuraPorId(id);
+        if(pet != null) {
+            return ResponseEntity.ok(pet);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+
 }
 

@@ -3,6 +3,7 @@ package br.org.fundatec.service;
 import br.org.fundatec.model.Pet;
 import br.org.fundatec.repository.PetRepository;
 
+
 import java.util.List;
 
 public class PetService {
@@ -23,6 +24,10 @@ public class PetService {
 
     public void salvarPet(Pet pet){
         petRepository.salvar(pet);
+    }
+
+    public Pet procuraPorId(Integer id) {
+        return petRepository.procurarComId(id);
     }
 
     public void editarPet(Integer id, Pet pet){
