@@ -2,39 +2,33 @@ package br.org.fundatec.service;
 
 import br.org.fundatec.model.Pet;
 import br.org.fundatec.repository.PetRepository;
-
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PetService {
 
-    private PetRepository petRepository;
+    private final PetRepository petRepository;
 
-    public PetService(){
-
-    }
-
-    public PetService(PetRepository petRepository) {
+    public PetService(PetRepository petRepository){
         this.petRepository = petRepository;
     }
 
-    public List<Pet> listarPets(){
-        return petRepository.listar();
+    public List<Pet> findAll(){
+      return petRepository.findAll();
     }
 
-    public void salvarPet(Pet pet){
-        petRepository.salvar(pet);
+    public Pet create(Pet pet) {
+        return petRepository.create(pet);
     }
 
-    public Pet procuraPorId(Integer id) {
-        return petRepository.procurarComId(id);
+    public Pet editar(Integer id, Pet pet) {
+        return petRepository.edit(id, pet);
     }
 
-    public void editarPet(Integer id, Pet pet){
-        petRepository.editar(id, pet);
+    public void deleteById(Integer id) {
+        petRepository.deleteById(id);
     }
 
-    public void excluirPetPorId(Integer id){
-        petRepository.excluirPorId(id);
-    }
 }

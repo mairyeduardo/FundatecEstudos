@@ -1,4 +1,4 @@
-package br.org.fundatec.run;
+package br.org.fundatec;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

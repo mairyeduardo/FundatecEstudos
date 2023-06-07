@@ -1,84 +1,56 @@
 package br.org.fundatec.repository;
 
 import br.org.fundatec.model.Pet;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
+@Repository
 public class PetRepository {
 
-    private List<Pet> pets = new ArrayList<>();
-
-
-    public List<Pet> listar() {
-        return pets;
+    private List<Pet> petsNoBanco = new ArrayList<>();
+    public PetRepository() {
+        petsNoBanco.addAll(List.of(
+                        new Pet(0, "Viralata", "caramelo"),
+                        new Pet(1, "siames", "preto"),
+                        new Pet(2, "pitbul", "marrom"),
+                        new Pet(3, "alemao", "preto e branco")
+                )
+        );
     }
 
-    public void salvar(Pet pet){
-        pets.add(pet);
+    public List<Pet> findAll(){
+        return petsNoBanco;
     }
 
-    public Pet procurarComId(Integer id) {
-        Optional<PetIndex> petIndex = procurarPeloId(id);
-        if(petIndex.isEmpty()) {
-            return null;
-        }else {
-            return petIndex.get().getPet();
-        }
+    public Pet create (Pet pet) {
+        Integer index = petsNoBanco.size() + 1;
+        pet.setId(index);
+        petsNoBanco.add(pet);
+        return pet;
     }
 
-    public void editar(Integer id, Pet pet) {
-        int index = -1;
-        for(int iter = 0;iter < pets.size();iter++) {
-            Pet encontrou = pets.get(iter);
-            if(id.equals(encontrou.getId())) {
-                index = iter;
-                break;
-            }
+    public Pet edit (Integer id, Pet pet) {
+        //localizar o index
+        pet.setId(id);
+        var index = petsNoBanco.lastIndexOf(pet);
+        if(index < 0) {
+            throw new RuntimeException("Item de id: " + id + " não localizado");
         }
-
-        if(index != -1) {
-            Pet achada = pets.get(index);
-            pet.setId(achada.getId());
-            pets.set(index, pet);
-
-        }
+        petsNoBanco.set(index, pet);
+        return pet;
     }
 
-    public void excluirPorId(Integer id) {
-
-        int index = -1;
-        for(int iter = 0;iter < pets.size();iter++) {
-            Pet encontrou = pets.get(iter);
-            if(id.equals(encontrou.getId())) {
-                index = iter;
-                break;
-            }
+    public void deleteById (Integer id){
+        //localizar o index
+        Pet pet = new Pet(id);
+        pet.setId(id);
+        var index = petsNoBanco.lastIndexOf(pet);
+        if(index < 0) {
+            throw new RuntimeException("Item de id: " + id + " não localizado");
         }
-
-        if(index > -1) {
-            pets.remove(index);
-        }
+        petsNoBanco.remove(index);
     }
-
-    private Optional<PetIndex> procurarPeloId(Integer id) {
-        int index = -1;
-        for(int iter = 0;iter < pets.size();iter++) {
-            Pet encontrou = pets.get(iter);
-            if(id.equals(encontrou.getId())) {
-                index = iter;
-                break;
-            }
-        }
-
-        if(index != -1) {
-            return Optional.of(new PetIndex(index, pets.get(index)));
-        }else {
-            return Optional.empty();
-        }
-    }
-
 
 }
-
-
