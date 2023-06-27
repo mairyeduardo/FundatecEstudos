@@ -6,3 +6,4 @@
 - Utilize as configurações do Spring para criar as tabelas no banco criado no passo anterior, a
 
 partir do mapeamento realizado nas entidades.
+![image](https://github.com/mairyeduardo/FundatecEstudos/assets/112039680/15690953-6b5e-47df-aa01-d3dd11ac821d)
