@@ -3,6 +3,8 @@ package br.com.fundatec.model;
 import jakarta.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipoPessoa",discriminatorType = DiscriminatorType.STRING)
 public class Pessoa {
 
     @Id

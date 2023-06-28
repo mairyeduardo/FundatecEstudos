@@ -1,10 +1,12 @@
 package br.com.fundatec.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 
 @Entity
+@DiscriminatorValue("Pessoa Juridica")
 public class PessoaJuridica extends Pessoa{
 
     private String cnpj;

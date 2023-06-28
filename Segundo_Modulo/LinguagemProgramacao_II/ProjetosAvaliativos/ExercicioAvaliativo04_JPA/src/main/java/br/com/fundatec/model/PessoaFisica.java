@@ -1,11 +1,13 @@
 package br.com.fundatec.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
 import java.time.LocalDate;
 
 @Entity
+@DiscriminatorValue("Pessoa Fisica")
 public class PessoaFisica extends Pessoa{
 
     @Column(length = 14)
