@@ -34,6 +34,4 @@ const filmes = [
 
 ```
 
-**Enunciado I:** Faça um Component que irá listar todos os filmes. A propriedade `nome` deve ser uma `h4` e a propriedade `diretores` deve ser uma listagem `ul` sendo cada item é sendo um `li`. [Resolução](https://codesandbox.io/s/resolucao-enunciado1-rgwbyc?file=/src/App.js)
-
 🔥 **Enunciado II:** Faça um Component que irá listar todos os filmes que foram ganhadores de Oscar e renderize o título do filme utilizando uma tag `h2`.
