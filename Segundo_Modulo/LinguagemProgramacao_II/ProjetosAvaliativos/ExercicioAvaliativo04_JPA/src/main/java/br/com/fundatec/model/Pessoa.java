@@ -2,6 +2,8 @@ package br.com.fundatec.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipoPessoa",discriminatorType = DiscriminatorType.STRING)
@@ -10,8 +12,8 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
-    private Endereco endereco;
+    @OneToMany(mappedBy = "pessoa")
+    private List<Endereco> endereco;
 
     public Long getId() {
         return id;
@@ -21,11 +23,13 @@ public class Pessoa {
         this.id = id;
     }
 
-    public Endereco getEndereco() {
+
+
+    public List<Endereco> getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(List<Endereco> endereco) {
         this.endereco = endereco;
     }
 }

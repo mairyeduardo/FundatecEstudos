@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @DiscriminatorValue("Pessoa Fisica")
 public class PessoaFisica extends Pessoa{
 
-    @Column(length = 14)
+    @Column(length = 14, nullable = false)
     private String cpf;
-    @Column(length = 150)
+    @Column(length = 150, nullable = false)
     private String nome;
     @Column(length = 10)
     private LocalDate dataNascimento;

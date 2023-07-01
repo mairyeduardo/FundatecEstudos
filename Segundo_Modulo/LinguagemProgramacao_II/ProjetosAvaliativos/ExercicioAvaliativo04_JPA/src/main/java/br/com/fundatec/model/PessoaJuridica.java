@@ -1,7 +1,9 @@
 package br.com.fundatec.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import org.hibernate.Length;
 
 import java.time.LocalDate;
 
@@ -9,8 +11,11 @@ import java.time.LocalDate;
 @DiscriminatorValue("Pessoa Juridica")
 public class PessoaJuridica extends Pessoa{
 
+    @Column(length = 50, nullable = false)
     private String cnpj;
+    @Column(length = 150, nullable = false)
     private String razaoSocial;
+    @Column(length = 31, nullable = false)
     private LocalDate dataCriacao;
 
     public String getCnpj() {
