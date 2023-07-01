@@ -1,0 +1,36 @@
+li {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 10px 0px 05px 0px;
+  transition: transform 0.3s linear;
+}
+
+li.pendente {
+  border: 01px solid #8fd14f;
+}
+
+li.pendente:hover {
+  background-color: #8fd14f;
+  color: white;
+  transform: scale(1.1);
+}
+
+.concluido {
+  border: 01px solid #0ca789;
+}
+
+.concluido:hover {
+  background-color: #0ca789;
+  color: white;
+  transform: scale(1.1);
+}
+
+.excluida {
+  border: 01px solid #eb4045;
+}
+.excluida:hover {
+  background-color: #eb4045;
+  color: white;
+  transform: scale(1.1);
+}

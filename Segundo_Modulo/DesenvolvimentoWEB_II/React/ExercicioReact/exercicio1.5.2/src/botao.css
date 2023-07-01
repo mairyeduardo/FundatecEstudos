@@ -1,0 +1,24 @@
+button {
+  padding: 10px;
+  border-radius: 100px;
+  text-decoration: none;
+  margin: 00px 05px 10px 00px;
+}
+
+button.pendente{
+  border: none;
+  background-color:#8FD14F;
+  color: white;
+}
+
+button.excluida{
+  border: none;
+  background-color: #EB4045;
+  color: white;
+}
+
+button.concluido{
+  border: none;
+  background-color: #0CA789;
+  color: white;
+}
