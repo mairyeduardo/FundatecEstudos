@@ -1,0 +1,31 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+li {
+  width: 50%;
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  padding: 4px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.botao {
+  position: absolute;
+  right: 130px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.lista-itens {
+  display: flex;
+  align-items: center;
+}
+
+.divisao {
+  margin-right: 10px;
+}
