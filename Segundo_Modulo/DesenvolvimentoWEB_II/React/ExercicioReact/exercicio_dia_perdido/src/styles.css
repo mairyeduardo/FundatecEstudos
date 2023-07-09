@@ -1,0 +1,111 @@
+.App {
+  position: relative;
+  background-color: #363636;
+  color: white;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: sans-serif;
+  text-align: center;
+  height: 400px;
+}
+
+h1 {
+  padding-left: 10px;
+  padding-top: 10px;
+  text-align: left;
+  border-bottom: 1px dotted white;
+}
+
+#botao-tres-pontos-opcao {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  border: none;
+  border-radius: 100px;
+  height: 30px;
+  width: 30px;
+  padding: 0px;
+  background-color: #363636;
+}
+
+#botao-tres-pontos-opcao:hover {
+  background-color: #444444;
+  cursor: pointer;
+}
+
+#svg-icone-tres-pontos-opcao {
+  fill: white;
+  padding: 5px;
+  height: 20px;
+}
+
+.mensagem {
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  padding: 2% 6% 2% 2%;
+  width: fit-content;
+}
+
+#mensagemEnviada {
+  margin: auto;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  background-color: #2e5f4f;
+  justify-content: right;
+}
+
+#mensagemRecebida {
+  margin-left: 10px;
+  background-color: #657583;
+  justify-content: left;
+}
+
+.span-svg-check-azul {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 10px;
+  fill: turquoise;
+}
+
+.span-svg-check-cinza {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 10px;
+  fill: #d3d3d3;
+}
+
+.botao-drop-1,
+.botao-drop-2 {
+  position: absolute;
+  border-radius: 150px;
+  top: 2px;
+  right: 1px;
+  border: none;
+  opacity: 0%;
+  padding: 0px;
+}
+
+.botao-drop-1 {
+  background-color: #657583;
+}
+
+.botao-drop-2 {
+  background-color: #2e5f4f;
+}
+
+.botao-drop-1:hover,
+.botao-drop-2:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+.svg-icone-drop {
+  height: 10px;
+  width: 15px;
+  fill: white;
+}
