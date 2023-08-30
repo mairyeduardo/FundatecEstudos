@@ -24,6 +24,5 @@ public class StringMain {
         for (int i = 0; i < separador.length; i++){
             System.out.println(separador[i]);
         }
-
     }
 }
