@@ -4,20 +4,19 @@ import java.math.BigDecimal;
 
 public abstract class Pessoa {
 
-    private BigDecimal idPessoa;
+    private Long idPessoa;
     private String nome;
     private String cpf;
-
     Endereco endereco;
 
-    public Pessoa(BigDecimal idPessoa, String nome, String cpf, Endereco endereco) {
+    public Pessoa(Long idPessoa, String nome, String cpf, Endereco endereco) {
         this.idPessoa = idPessoa;
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
     }
 
-    public BigDecimal getIdPessoa() {
+    public Long getIdPessoa() {
         return idPessoa;
     }
 

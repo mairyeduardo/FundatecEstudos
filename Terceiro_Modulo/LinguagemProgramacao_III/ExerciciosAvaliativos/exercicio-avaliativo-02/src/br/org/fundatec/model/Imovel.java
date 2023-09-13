@@ -4,15 +4,13 @@ import java.math.BigDecimal;
 
 public class Imovel {
 
-    private BigDecimal idImovel;
+    private Long idImovel;
     private BigDecimal valorImovel;
     Endereco endereco;
     TipoImovel tipoImovel;
     Imobiliaria imobiliaria;
 
-
-
-    public Imovel(BigDecimal idImovel, BigDecimal valorImovel, Endereco endereco, TipoImovel tipoImovel, Imobiliaria imobiliaria) {
+    public Imovel(Long idImovel, BigDecimal valorImovel, Endereco endereco, TipoImovel tipoImovel, Imobiliaria imobiliaria) {
         this.idImovel = idImovel;
         this.valorImovel = valorImovel;
         this.endereco = endereco;
@@ -20,11 +18,11 @@ public class Imovel {
         this.imobiliaria = imobiliaria;
     }
 
-    public BigDecimal getIdImovel() {
+    public Long getIdImovel() {
         return idImovel;
     }
 
-    public void setIdImovel(BigDecimal idImovel) {
+    public void setIdImovel(Long idImovel) {
         this.idImovel = idImovel;
     }
 

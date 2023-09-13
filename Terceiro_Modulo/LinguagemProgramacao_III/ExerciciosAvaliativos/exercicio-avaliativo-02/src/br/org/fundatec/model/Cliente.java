@@ -4,23 +4,22 @@ import java.math.BigDecimal;
 
 public class Cliente extends Pessoa {
 
-    private BigDecimal idCliente;
+    private Long idCliente;
     TipoCliente tipoCliente;
-
     private BigDecimal rendaMensal;
 
-    public Cliente(BigDecimal idPessoa,String nomePessoa, Endereco endereco, String cpfPessoa, BigDecimal idCliente, TipoCliente tipoCliente, BigDecimal rendaMensal) {
+    public Cliente(Long idPessoa,String nomePessoa, Endereco endereco, String cpfPessoa, Long idCliente, TipoCliente tipoCliente, BigDecimal rendaMensal) {
         super(idPessoa, nomePessoa, cpfPessoa, endereco);
         this.idCliente = idCliente;
         this.tipoCliente = tipoCliente;
         this.rendaMensal = rendaMensal;
     }
 
-    public BigDecimal getIdCliente() {
+    public Long getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(BigDecimal idCliente) {
+    public void setIdCliente(Long idCliente) {
         this.idCliente = idCliente;
     }
 

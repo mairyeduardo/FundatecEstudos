@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 
 public class Endereco {
 
-    private BigDecimal idEndereco;
+    private Long idEndereco;
     private String cep;
     private String rua;
     private int numero;
     private String bairro;
     private String complemento;
 
-    public Endereco(BigDecimal idEndereco, String cep, String rua, int numero, String bairro, String complemento) {
+    public Endereco(Long idEndereco, String cep, String rua, int numero, String bairro, String complemento) {
         this.idEndereco = idEndereco;
         this.cep = cep;
         this.rua = rua;
@@ -20,11 +20,11 @@ public class Endereco {
         this.complemento = complemento;
     }
 
-    public BigDecimal getIdEndereco() {
+    public Long getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(BigDecimal idEndereco) {
+    public void setIdEndereco(Long idEndereco) {
         this.idEndereco = idEndereco;
     }
 

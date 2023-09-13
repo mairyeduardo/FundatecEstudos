@@ -1,27 +1,28 @@
 package br.org.fundatec.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Imobiliaria {
 
-    private BigDecimal idImobiliaria;
+    private Long idImobiliaria;
     private String nomeImobiliaria;
     List <Funcionario> funcionarios;
     List <Cliente> clientes;
 
-    public Imobiliaria(BigDecimal idImobiliaria, String nomeImobiliaria, List<Funcionario> funcionarios, List<Cliente> clientes) {
+    public Imobiliaria(Long idImobiliaria, String nomeImobiliaria) {
         this.idImobiliaria = idImobiliaria;
         this.nomeImobiliaria = nomeImobiliaria;
-        this.funcionarios = funcionarios;
-        this.clientes = clientes;
+        this.funcionarios = new ArrayList<>();
+        this.clientes = new ArrayList<>();
     }
 
-    public BigDecimal getIdImobiliaria() {
+    public Long getIdImobiliaria() {
         return idImobiliaria;
     }
 
-    public void setIdImobiliaria(BigDecimal idImobiliaria) {
+    public void setIdImobiliaria(Long idImobiliaria) {
         this.idImobiliaria = idImobiliaria;
     }
 
