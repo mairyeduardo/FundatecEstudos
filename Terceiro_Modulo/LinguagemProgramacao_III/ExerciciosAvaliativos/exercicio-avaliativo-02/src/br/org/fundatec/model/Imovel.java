@@ -6,13 +6,15 @@ public class Imovel {
 
     private Long idImovel;
     private BigDecimal valorImovel;
+    private String descricao;
     Endereco endereco;
     TipoImovel tipoImovel;
     Imobiliaria imobiliaria;
 
-    public Imovel(Long idImovel, BigDecimal valorImovel, Endereco endereco, TipoImovel tipoImovel, Imobiliaria imobiliaria) {
+    public Imovel(Long idImovel, BigDecimal valorImovel, String descricao, Endereco endereco, TipoImovel tipoImovel, Imobiliaria imobiliaria) {
         this.idImovel = idImovel;
         this.valorImovel = valorImovel;
+        this.descricao = descricao;
         this.endereco = endereco;
         this.tipoImovel = tipoImovel;
         this.imobiliaria = imobiliaria;
@@ -32,6 +34,14 @@ public class Imovel {
 
     public void setValorImovel(BigDecimal valorImovel) {
         this.valorImovel = valorImovel;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Endereco getEndereco() {

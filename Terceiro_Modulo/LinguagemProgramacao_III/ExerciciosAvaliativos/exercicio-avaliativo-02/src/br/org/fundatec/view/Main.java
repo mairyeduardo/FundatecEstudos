@@ -31,27 +31,40 @@ public class Main {
         Funcionario funcionario2 = new Funcionario(4L, "FabioAtendente", endereco4, "888.888.888-88", 2L, BigDecimal.valueOf(1500), TipoFuncionario.ATENDENTE, imobiliaria1);
         Funcionario funcionario3 = new Funcionario(5L, "NaldoAdvogado", endereco5, "999.999.999-99", 3L, BigDecimal.valueOf(1500), TipoFuncionario.ADVOGADOIMOBILIARIO, imobiliaria1);
 
+        Imovel imovel1 = new Imovel(1L, BigDecimal.valueOf(200520), "Casa 3 quartos", endereco8, TipoImovel.CASA, imobiliaria1);
+        Imovel imovel2 = new Imovel(2L, BigDecimal.valueOf(120402), "Apartamento 2 quartos" , endereco9, TipoImovel.APARTAMENTO, imobiliaria1);
+        Imovel imovel3 = new Imovel(3L, BigDecimal.valueOf(80100), "Terreno Limpo", endereco10, TipoImovel.TERRENO, imobiliaria1);
+
+
         ImobiliariaService imobiliariaService = new ImobiliariaService();
         imobiliariaService.vincularFuncionario(imobiliaria1, funcionario1);
         imobiliariaService.vincularFuncionario(imobiliaria1, funcionario2);
         imobiliariaService.vincularFuncionario(imobiliaria1, funcionario3);
+        imobiliariaService.vincularCliente(imobiliaria1, cliente1);
+        imobiliariaService.vincularCliente(imobiliaria1, cliente2);
+        imobiliariaService.vincularCliente(imobiliaria1, cliente3);
+        imobiliariaService.vincularImovel(imobiliaria1, imovel1);
+        imobiliariaService.vincularImovel(imobiliaria1, imovel2);
+        imobiliariaService.vincularImovel(imobiliaria1, imovel3);
 
         for (Funcionario f : imobiliaria1.getFuncionarios()) {
             System.out.println("@ Funcionario da Imobiliaria " + imobiliaria1.getNomeImobiliaria() +
-                    " :" + f.getNome());
+                    ", nome: " + f.getNome());
         }
 
-        Imovel imovel1 = new Imovel(1L, BigDecimal.valueOf(200520), endereco8, TipoImovel.CASA, imobiliaria1);
-        Imovel imovel2 = new Imovel(2L, BigDecimal.valueOf(120402), endereco9, TipoImovel.APARTAMENTO, imobiliaria1);
-        Imovel imovel3 = new Imovel(3L, BigDecimal.valueOf(80100), endereco10, TipoImovel.TERRENO, imobiliaria1);
+        for (Cliente c: imobiliaria1.getClientes()) {
+            System.out.println("@ Cliente da imobiliaria" + imobiliaria1.getNomeImobiliaria() +
+                    ", nome: " + c.getNome());
+        }
 
-
+        for (Imovel i: imobiliaria1.getImoveis()) {
+            System.out.println("@ Imovel da imobiliaria" + imobiliaria1.getNomeImobiliaria() +
+                    ", nome: " + i.getDescricao());
+        }
 
         VendaService vendaService = new VendaService();
-
-        // funcionario e cliente são iguais; fazer validacao??
-        vendaService.venderImovel(funcionario1, cliente3, imovel1);
-        vendaService.venderImovel(funcionario2, cliente2, imovel2);
-        vendaService.venderImovel(funcionario3, cliente1, imovel3);
+        vendaService.venderImovel(funcionario1, cliente3, imovel1, imobiliaria1);
+        vendaService.venderImovel(funcionario2, cliente2, imovel2, imobiliaria1);
+        vendaService.venderImovel(funcionario3, cliente1, imovel3, imobiliaria1);
     }
 }

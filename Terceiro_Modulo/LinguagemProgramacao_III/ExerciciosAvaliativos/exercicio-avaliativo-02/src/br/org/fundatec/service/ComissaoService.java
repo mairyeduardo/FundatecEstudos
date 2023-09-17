@@ -10,10 +10,8 @@ public class ComissaoService {
 
     public BigDecimal calcularComissaoVenda(Imovel imovel) {
         BigDecimal valorTotalImovel = imovel.getValorImovel();
-        // TODO Como calcular comissão de 6% com BigDecimal
+        //Como calcular comissão de 6% com BigDecimal
         BigDecimal comissaoVenda = valorTotalImovel.multiply(porcentagemComissao).divide(BigDecimal.valueOf(100));
         return comissaoVenda;
     }
-
-
 }

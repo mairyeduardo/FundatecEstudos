@@ -15,16 +15,25 @@ public class VendaService {
         this.comissaoService = new ComissaoService();
     }
 
-    public void venderImovel(Funcionario funcionario, Cliente cliente, Imovel imovel) {
+    public void venderImovel(Funcionario funcionario, Cliente cliente, Imovel imovel, Imobiliaria imobiliaria) {
 
-        Contrato contratoVenda = contratoService.criarContrato(funcionario, cliente, imovel);
+        Contrato contratoVenda = contratoService.criarContrato(funcionario, cliente, imovel, imobiliaria);
 
-        System.out.println(contratoVenda);
-        System.out.println("Venda do Imóvel " + imovel.getIdImovel() + " realizada com sucesso!");
-        System.out.println("Funcionário que realizou a venda: " + funcionario.getNome());
-        System.out.println("Valor do Imóvel: R$" + imovel.getValorImovel());
-        System.out.println("Comissão gerada para o Funcionário " + funcionario.getNome() + " no valor de R$" +
-                comissaoService.calcularComissaoVenda(imovel));
+        if (contratoVenda == null) {
+            System.out.println("Não foi possivel realizar a venda do Imóvel: " + imovel.getIdImovel() + ", Contrato não segue os termos de Compra e Venda");
+
+        } else {
+
+            System.out.println("Venda do Imóvel realizada com sucesso!");
+            System.out.println("Imobiliaria: " + imobiliaria.getNomeImobiliaria());
+            System.out.println("Descrição do Imóvel: " + imovel.getDescricao());
+            System.out.println("Valor do Imóvel: R$" + imovel.getValorImovel());
+            System.out.println("Cliente que realizou a compra: " + cliente.getNome());
+            System.out.println("Funcionário que realizou a venda: " + funcionario.getNome());
+            System.out.println("Comissão gerada para o Funcionário no valor de R$" +
+                    comissaoService.calcularComissaoVenda(imovel));
+
+        }
     }
 
 }

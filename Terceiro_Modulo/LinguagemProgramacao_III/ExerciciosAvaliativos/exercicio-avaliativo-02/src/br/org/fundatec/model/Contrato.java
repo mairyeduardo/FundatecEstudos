@@ -9,11 +9,14 @@ public class Contrato {
     Cliente cliente;
     Imovel imovel;
 
-    public Contrato(Long idContrato, Funcionario funcionario, Cliente cliente, Imovel imovel) {
+    Imobiliaria imobiliaria;
+
+    public Contrato(Long idContrato, Funcionario funcionario, Cliente cliente, Imovel imovel, Imobiliaria imobiliaria) {
         this.idContrato = idContrato;
         this.funcionario = funcionario;
         this.cliente = cliente;
         this.imovel = imovel;
+        this.imobiliaria = imobiliaria;
     }
 
     public Long getIdContrato() {
@@ -46,5 +49,13 @@ public class Contrato {
 
     public void setImovel(Imovel imovel) {
         this.imovel = imovel;
+    }
+
+    public Imobiliaria getImobiliaria() {
+        return imobiliaria;
+    }
+
+    public void setImobiliaria(Imobiliaria imobiliaria) {
+        this.imobiliaria = imobiliaria;
     }
 }
