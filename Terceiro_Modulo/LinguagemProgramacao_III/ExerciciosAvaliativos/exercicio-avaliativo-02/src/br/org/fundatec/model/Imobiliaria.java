@@ -1,6 +1,5 @@
 package br.org.fundatec.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +7,9 @@ public class Imobiliaria {
 
     private Long idImobiliaria;
     private String nomeImobiliaria;
-    List <Funcionario> funcionarios;
-    List <Cliente> clientes;
-    List <Imovel> imoveis;
+    List<Funcionario> funcionarios;
+    List<Cliente> clientes;
+    List<Imovel> imoveis;
 
     public Imobiliaria(Long idImobiliaria, String nomeImobiliaria) {
         this.idImobiliaria = idImobiliaria;

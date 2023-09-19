@@ -11,28 +11,36 @@ public class Main {
 
         Imobiliaria imobiliaria1 = new Imobiliaria(1L, "auxiliadoraPredial");
 
-        // Endereco de clientes e funcionarios
-        Endereco endereco1 = new Endereco(1L, "11111-111", "Rua teste1", 100, "Bairro1", "casa1");
-        Endereco endereco2 = new Endereco(2L, "22222-222", "Rua teste2", 200, "Bairro2", "casa2");
-        Endereco endereco3 = new Endereco(3L, "33333-333", "Rua teste3", 300, "Bairro3", "casa3");
-        Endereco endereco4 = new Endereco(4L, "44444-444", "Rua teste4", 400, "Bairro4", "casa4");
-        Endereco endereco5 = new Endereco(5L, "55555-555", "Rua teste5", 500, "Bairro5", "casa5");
+        /** Endereco de clientes e funcionarios **/
+        Endereco endereco1 = Endereco.builder()
+                .idEndereco(1L).cep("11111-111").rua("Rua teste1").numero(100).bairro("Bairro1").complemento("casa1").build();
+        Endereco endereco2 = Endereco.builder()
+                .idEndereco(2L).cep("22222-222").rua("Rua teste2").numero(200).bairro("Bairro2").complemento("casa2").build();
+        Endereco endereco3 = Endereco.builder()
+                .idEndereco(3L).cep("33333-333").rua("Rua teste3").numero(300).bairro("Bairro3").complemento("casa3").build();
+        Endereco endereco4 = Endereco.builder()
+                .idEndereco(4L).cep("44444-444").rua("Rua teste4").numero(400).bairro("Bairro4").complemento("casa4").build();
+        Endereco endereco5 = Endereco.builder()
+                .idEndereco(5L).cep("55555-555").rua("Rua teste5").numero(500).bairro("Bairro5").complemento("casa5").build();
 
-        // Endereco dos imoveis a venda
-        Endereco endereco8 = new Endereco(8L, "88888-888", "Rua teste8", 800, "Bairro8", "casa8");
-        Endereco endereco9 = new Endereco(9L, "99999-999", "Rua teste9", 900, "Bairro9", "apartamento9");
-        Endereco endereco10 = new Endereco(10L, "10101-010", "Rua teste10", 1000, "Bairro10", "terreno10");
+        /** Endereco dos imoveis a venda **/
+        Endereco endereco8 = Endereco.builder()
+                .idEndereco(8L).cep("88888-888").rua("Rua teste8").numero(800).bairro("Bairro8").complemento("casa8").build();
+        Endereco endereco9 = Endereco.builder()
+                .idEndereco(9L).cep("99999-999").rua("Rua teste9").numero(900).bairro("Bairro9").complemento("apartamento9").build();
+        Endereco endereco10 = Endereco.builder()
+                .idEndereco(10L).cep("10101-010").rua("Rua teste10").numero(1000).bairro("Bairro10").complemento("terreno10").build();
 
-        Cliente cliente1 = new Cliente(1L,"MarcioCliente", endereco1, "111.111.111-11", 1L, TipoCliente.COMUM, BigDecimal.valueOf(1200));
-        Cliente cliente2 = new Cliente(2L,"CaioCliente", endereco2, "222.222.222-22", 2L, TipoCliente.VIP, BigDecimal.valueOf(1600));
-        Cliente cliente3 = new Cliente(3L,"JorgeCorretor", endereco3, "777.777.777-77", 3L, TipoCliente.FUNCIONARIO, BigDecimal.valueOf(3200));
+        Cliente cliente1 = new Cliente(1L, "MarcioCliente", endereco1, "111.111.111-11", 1L, TipoCliente.COMUM, BigDecimal.valueOf(1200));
+        Cliente cliente2 = new Cliente(2L, "CaioCliente", endereco2, "222.222.222-22", 2L, TipoCliente.VIP, BigDecimal.valueOf(1600));
+        Cliente cliente3 = new Cliente(3L, "JorgeCorretor", endereco3, "777.777.777-77", 3L, TipoCliente.FUNCIONARIO, BigDecimal.valueOf(3200));
 
-        Funcionario funcionario1 = new Funcionario(3L, "JorgeCorretor", endereco3, "777.777.777-77", 1L, BigDecimal.valueOf(3200), TipoFuncionario.CORRETOR, imobiliaria1 );
+        Funcionario funcionario1 = new Funcionario(3L, "JorgeCorretor", endereco3, "777.777.777-77", 1L, BigDecimal.valueOf(3200), TipoFuncionario.CORRETOR, imobiliaria1);
         Funcionario funcionario2 = new Funcionario(4L, "FabioAtendente", endereco4, "888.888.888-88", 2L, BigDecimal.valueOf(1500), TipoFuncionario.ATENDENTE, imobiliaria1);
         Funcionario funcionario3 = new Funcionario(5L, "NaldoAdvogado", endereco5, "999.999.999-99", 3L, BigDecimal.valueOf(1500), TipoFuncionario.ADVOGADOIMOBILIARIO, imobiliaria1);
 
         Imovel imovel1 = new Imovel(1L, BigDecimal.valueOf(200520), "Casa 3 quartos", endereco8, TipoImovel.CASA, imobiliaria1);
-        Imovel imovel2 = new Imovel(2L, BigDecimal.valueOf(120402), "Apartamento 2 quartos" , endereco9, TipoImovel.APARTAMENTO, imobiliaria1);
+        Imovel imovel2 = new Imovel(2L, BigDecimal.valueOf(120402), "Apartamento 2 quartos", endereco9, TipoImovel.APARTAMENTO, imobiliaria1);
         Imovel imovel3 = new Imovel(3L, BigDecimal.valueOf(80100), "Terreno Limpo", endereco10, TipoImovel.TERRENO, imobiliaria1);
 
 
@@ -52,12 +60,12 @@ public class Main {
                     ", nome: " + f.getNome());
         }
 
-        for (Cliente c: imobiliaria1.getClientes()) {
+        for (Cliente c : imobiliaria1.getClientes()) {
             System.out.println("@ Cliente da imobiliaria" + imobiliaria1.getNomeImobiliaria() +
                     ", nome: " + c.getNome());
         }
 
-        for (Imovel i: imobiliaria1.getImoveis()) {
+        for (Imovel i : imobiliaria1.getImoveis()) {
             System.out.println("@ Imovel da imobiliaria" + imobiliaria1.getNomeImobiliaria() +
                     ", nome: " + i.getDescricao());
         }

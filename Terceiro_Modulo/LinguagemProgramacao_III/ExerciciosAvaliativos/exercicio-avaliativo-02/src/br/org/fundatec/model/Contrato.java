@@ -1,7 +1,5 @@
 package br.org.fundatec.model;
 
-import java.math.BigDecimal;
-
 public class Contrato {
 
     private Long idContrato;

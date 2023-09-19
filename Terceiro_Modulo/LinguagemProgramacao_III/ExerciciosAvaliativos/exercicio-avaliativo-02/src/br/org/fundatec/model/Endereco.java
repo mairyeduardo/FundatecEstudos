@@ -1,7 +1,6 @@
 package br.org.fundatec.model;
 
-import java.math.BigDecimal;
-
+//TODO Criar Builder
 public class Endereco {
 
     private Long idEndereco;
@@ -11,13 +10,13 @@ public class Endereco {
     private String bairro;
     private String complemento;
 
-    public Endereco(Long idEndereco, String cep, String rua, int numero, String bairro, String complemento) {
-        this.idEndereco = idEndereco;
-        this.cep = cep;
-        this.rua = rua;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.complemento = complemento;
+    private Endereco(EnderecoBuilder builder) {
+        this.idEndereco = builder.idEndereco;
+        this.cep = builder.cep;
+        this.rua = builder.rua;
+        this.numero = builder.numero;
+        this.bairro = builder.bairro;
+        this.complemento = builder.complemento;
     }
 
     public Long getIdEndereco() {
@@ -67,4 +66,57 @@ public class Endereco {
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
+
+    public static EnderecoBuilder builder() {
+        return new EnderecoBuilder();
+    }
+
+    public static class EnderecoBuilder {
+
+        private Long idEndereco;
+        private String cep;
+        private String rua;
+        private int numero;
+        private String bairro;
+        private String complemento;
+
+        private EnderecoBuilder() {
+        }
+
+        public EnderecoBuilder idEndereco(Long idEndereco) {
+            this.idEndereco = idEndereco;
+            return this;
+        }
+
+        public EnderecoBuilder cep(String cep) {
+            this.cep = cep;
+            return this;
+        }
+
+        public EnderecoBuilder rua(String rua) {
+            this.rua = rua;
+            return this;
+        }
+
+        public EnderecoBuilder numero(int numero) {
+            this.numero = numero;
+            return this;
+        }
+
+        public EnderecoBuilder bairro(String bairro) {
+            this.bairro = bairro;
+            return this;
+        }
+
+        public EnderecoBuilder complemento(String complemento) {
+            this.complemento = complemento;
+            return this;
+        }
+
+        public Endereco build() {
+            return new Endereco(this);
+        }
+    }
 }
+
+

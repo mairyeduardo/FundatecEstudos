@@ -9,7 +9,7 @@ public class Funcionario extends Pessoa {
     TipoFuncionario tipoFuncionario;
     Imobiliaria imobiliaria;
 
-    public Funcionario(Long idPessoa,String nomePessoa, Endereco endereco, String cpfPessoa, Long idFuncionario, BigDecimal salario, TipoFuncionario tipoFuncionario, Imobiliaria imobiliaria) {
+    public Funcionario(Long idPessoa, String nomePessoa, Endereco endereco, String cpfPessoa, Long idFuncionario, BigDecimal salario, TipoFuncionario tipoFuncionario, Imobiliaria imobiliaria) {
         super(idPessoa, nomePessoa, cpfPessoa, endereco);
         this.idFuncionario = idFuncionario;
         this.salario = salario;

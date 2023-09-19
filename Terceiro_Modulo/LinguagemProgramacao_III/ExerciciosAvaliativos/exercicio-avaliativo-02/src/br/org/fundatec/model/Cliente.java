@@ -8,7 +8,7 @@ public class Cliente extends Pessoa {
     TipoCliente tipoCliente;
     private BigDecimal rendaMensal;
 
-    public Cliente(Long idPessoa,String nomePessoa, Endereco endereco, String cpfPessoa, Long idCliente, TipoCliente tipoCliente, BigDecimal rendaMensal) {
+    public Cliente(Long idPessoa, String nomePessoa, Endereco endereco, String cpfPessoa, Long idCliente, TipoCliente tipoCliente, BigDecimal rendaMensal) {
         super(idPessoa, nomePessoa, cpfPessoa, endereco);
         this.idCliente = idCliente;
         this.tipoCliente = tipoCliente;
