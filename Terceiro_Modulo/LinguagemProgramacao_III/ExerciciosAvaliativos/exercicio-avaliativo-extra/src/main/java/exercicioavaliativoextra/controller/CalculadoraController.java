@@ -1,6 +1,5 @@
 package exercicioavaliativoextra.controller;
 
-
 import exercicioavaliativoextra.service.CalculadoraService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
