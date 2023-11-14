@@ -42,15 +42,15 @@ public class PokemonController {
         return ResponseEntity.ok(pokemonRemovido);
     }
 
-    // Todo implementar endpoint para remover pokemon por nome
-    @DeleteMapping("/{nome}")
-    public ResponseEntity<Pokemon> removerPokemonPorNome(){
-        return null;
+    @DeleteMapping("/nome/{nome}")
+    public ResponseEntity<Pokemon> removerPokemonPorNome(@PathVariable("nome") String nome){
+        return ResponseEntity.ok(this.pokemonService.removerPorNome(nome));
     }
 
-    // Todo endpoint para alterar
-    @PutMapping("/{id}")
-    public ResponseEntity<Pokemon> alterarPokemonPorId(){
-        return null;
+    @PutMapping("/id/{id}")
+    public ResponseEntity<Pokemon> alterarPokemonPorId(@PathVariable("id") Long id,
+                                                       @RequestBody Pokemon pokemon){
+        Pokemon pokemonAlterado = pokemonService.alterarPorId(id, pokemon);
+        return ResponseEntity.ok(pokemonAlterado);
     }
 }

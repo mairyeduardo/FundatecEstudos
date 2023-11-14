@@ -11,7 +11,7 @@ public class PokemonService {
 
     private PokemonRepository pokemonRepository;
 
-    public PokemonService(PokemonRepository pokemonRepository){
+    public PokemonService(PokemonRepository pokemonRepository) {
         this.pokemonRepository = pokemonRepository;
     }
 
@@ -27,9 +27,23 @@ public class PokemonService {
         pokemonRepository.save(pokemon);
     }
 
-    public Pokemon removerPorId(Long id){
-       Pokemon pokemonParaRemover = pokemonRepository.findById(id).get();
-       pokemonRepository.delete(pokemonParaRemover);
-       return pokemonParaRemover;
+    public Pokemon removerPorId(Long id) {
+        Pokemon pokemonParaRemover = pokemonRepository.findById(id).get();
+        pokemonRepository.delete(pokemonParaRemover);
+        return pokemonParaRemover;
+    }
+
+    public Pokemon removerPorNome(String nome) {
+        Pokemon pokemonParaRemover = pokemonRepository.findByNome(nome);
+        pokemonRepository.delete(pokemonParaRemover);
+        return pokemonParaRemover;
+    }
+
+    public Pokemon alterarPorId(Long id, Pokemon pokemon){
+        Pokemon pokemonEncontrado = pokemonRepository.findById(id).get();
+        pokemonEncontrado.setNome(pokemon.getNome());
+        pokemonEncontrado.setTipo(pokemon.getTipo());
+        pokemonRepository.save(pokemonEncontrado);
+        return pokemonEncontrado;
     }
 }
