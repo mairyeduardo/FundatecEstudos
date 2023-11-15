@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import poke.api.integration.response.PokemonResponse;
+import poke.api.integration.service.PokemonIntegrationService;
 import poke.api.model.Pokemon;
 import poke.api.service.PokemonService;
 
@@ -15,9 +17,11 @@ import java.util.List;
 public class PokemonController {
 
     private PokemonService pokemonService;
+    private PokemonIntegrationService pokemonIntegrationService;
 
-    public PokemonController(PokemonService pokemonService) {
+    public PokemonController(PokemonService pokemonService, PokemonIntegrationService pokemonIntegrationService) {
         this.pokemonService = pokemonService;
+        this.pokemonIntegrationService = pokemonIntegrationService;
     }
 
     @GetMapping
@@ -43,14 +47,21 @@ public class PokemonController {
     }
 
     @DeleteMapping("/nome/{nome}")
-    public ResponseEntity<Pokemon> removerPokemonPorNome(@PathVariable("nome") String nome){
+    public ResponseEntity<Pokemon> removerPokemonPorNome(@PathVariable("nome") String nome) {
         return ResponseEntity.ok(this.pokemonService.removerPorNome(nome));
     }
 
     @PutMapping("/id/{id}")
     public ResponseEntity<Pokemon> alterarPokemonPorId(@PathVariable("id") Long id,
-                                                       @RequestBody Pokemon pokemon){
+                                                       @RequestBody Pokemon pokemon) {
         Pokemon pokemonAlterado = pokemonService.alterarPorId(id, pokemon);
         return ResponseEntity.ok(pokemonAlterado);
+    }
+
+    @GetMapping("/api-externa/{nome}")
+    public ResponseEntity<PokemonResponse> buscarPokemonNoServicoExterno(@PathVariable("nome") String nome) {
+        PokemonResponse pokemonBuscadoServicoExterno =
+                this.pokemonIntegrationService.buscarPokemonNoServicoExternoPeloNome(nome);
+        return ResponseEntity.ok(pokemonBuscadoServicoExterno);
     }
 }
