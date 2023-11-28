@@ -14,16 +14,6 @@ public class ElementosPessoaFisicaPage {
         this.driver = driver;
     }
 
-    public void preencherCampoNome(String firstName) {
-        WebElement nome = driver.findElement(By.id("name"));
-        nome.sendKeys(firstName);
-    }
-
-    public void preencherCampoSobrenome(String lastName) {
-        WebElement sobrenome = driver.findElement(By.id("lastname"));
-        sobrenome.sendKeys(lastName);
-    }
-
     public void preencherCampoDataNascimento(String date) {
         WebElement dataNascimento = driver.findElement(By.id("date"));
         dataNascimento.sendKeys(date);
@@ -33,5 +23,13 @@ public class ElementosPessoaFisicaPage {
         WebElement CPF = driver.findElement(By.id("document"));
         CPF.sendKeys(cpf);
     }
+
+    public void verificarSeMensagemDeErroCPFEstaVisivel(){
+        WebElement mensagemErro = driver.findElement(By.xpath("//span[contains(text(), \"CPF inválido\")]"));
+        mensagemErro.getText();
+        mensagemErro.isDisplayed();
+    }
+
+
 
 }
