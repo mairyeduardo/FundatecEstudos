@@ -1,7 +1,12 @@
 package poke.api.service;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import poke.api.model.Pokemon;
+import poke.api.model.dto.PokemonRequestDTO;
+import poke.api.model.dto.converter.PokemonConverter;
 import poke.api.repository.PokemonRepository;
 
 import java.util.List;
@@ -23,8 +28,23 @@ public class PokemonService {
         return pokemonRepository.findByNome(nome);
     }
 
-    public void adicionar(Pokemon pokemon) {
-        pokemonRepository.save(pokemon);
+    public Integer ListarQuantidadeDePokemons(){
+        Integer quantidadePokemons = buscarTodos().size();
+        return quantidadePokemons;
+    }
+
+    public void adicionar(PokemonRequestDTO pokemonRequestDTO) {
+        String verificarNomePokemonASerAdicionado = pokemonRequestDTO.getNome();
+        Pokemon pokemonExistente = buscarPokemonPorNome(verificarNomePokemonASerAdicionado);
+        if (pokemonExistente != null) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Não é possivel adicionar um pokemon repetido." +
+                            " O pokemon : " + verificarNomePokemonASerAdicionado + " já existe na base de dados.");
+        } else {
+            Pokemon pokemonEntity = PokemonConverter.coverterParaEntidade(pokemonRequestDTO);
+            pokemonRepository.save(pokemonEntity);
+        }
     }
 
     public Pokemon removerPorId(Long id) {
@@ -35,11 +55,19 @@ public class PokemonService {
 
     public Pokemon removerPorNome(String nome) {
         Pokemon pokemonParaRemover = pokemonRepository.findByNome(nome);
-        pokemonRepository.delete(pokemonParaRemover);
-        return pokemonParaRemover;
+        if (pokemonParaRemover == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST,
+                    "Não é possivel remover um pokemon inexistente." +
+                            " O pokemon : " + nome + " não existe na base da dados."
+            );
+        } else {
+            pokemonRepository.delete(pokemonParaRemover);
+            return pokemonParaRemover;
+        }
     }
 
-    public Pokemon alterarPorId(Long id, Pokemon pokemon){
+    public Pokemon alterarPorId(Long id, Pokemon pokemon) {
         Pokemon pokemonEncontrado = pokemonRepository.findById(id).get();
         pokemonEncontrado.setNome(pokemon.getNome());
         pokemonEncontrado.setTipo(pokemon.getTipo());

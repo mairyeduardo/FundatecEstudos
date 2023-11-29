@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import poke.api.integration.response.PokemonResponse;
 import poke.api.integration.service.PokemonIntegrationService;
 import poke.api.model.Pokemon;
+import poke.api.model.dto.PokemonRequestDTO;
 import poke.api.service.PokemonService;
 
 import java.util.List;
@@ -29,14 +30,19 @@ public class PokemonController {
         return ResponseEntity.ok(this.pokemonService.buscarTodos());
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Integer> contarQuantidadePokemonsSalvos() {
+        return ResponseEntity.ok(this.pokemonService.ListarQuantidadeDePokemons());
+    }
+
     @GetMapping("/{nome}")
     public ResponseEntity<Pokemon> buscarPokemonPeloNome(@PathVariable("nome") String nome) {
         return ResponseEntity.ok(this.pokemonService.buscarPokemonPorNome(nome));
     }
 
     @PostMapping()
-    public ResponseEntity<Void> adicionarPokemons(@RequestBody Pokemon pokemon) {
-        pokemonService.adicionar(pokemon);
+    public ResponseEntity<Void> adicionarPokemons(@RequestBody PokemonRequestDTO pokemonRequest) {
+        pokemonService.adicionar(pokemonRequest);
         return new ResponseEntity<>(null, HttpStatus.CREATED);
     }
 
