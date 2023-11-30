@@ -40,6 +40,11 @@ public class PokemonController {
         return ResponseEntity.ok(this.pokemonService.buscarPokemonPorNome(nome));
     }
 
+    @GetMapping("/tipo/{tipo}")
+    public ResponseEntity<List<Pokemon>> buscarPokemonPorTipo(@PathVariable("tipo") String tipo) {
+        return ResponseEntity.ok(this.pokemonService.buscarPokemonPeloTipo(tipo));
+    }
+
     @PostMapping()
     public ResponseEntity<Void> adicionarPokemons(@RequestBody PokemonRequestDTO pokemonRequest) {
         pokemonService.adicionar(pokemonRequest);

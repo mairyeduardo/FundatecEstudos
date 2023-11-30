@@ -28,6 +28,10 @@ public class PokemonService {
         return pokemonRepository.findByNome(nome);
     }
 
+    public List<Pokemon> buscarPokemonPeloTipo(String tipo){
+        return pokemonRepository.findByTipo(tipo);
+    }
+
     public Integer ListarQuantidadeDePokemons(){
         Integer quantidadePokemons = buscarTodos().size();
         return quantidadePokemons;
